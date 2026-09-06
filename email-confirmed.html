@@ -62,15 +62,20 @@
 
   <script src="lang.js"></script>
   <script>
-    // Supabase's PKCE email-confirmation redirect lands here as
-    // ?code=...&type=signup — forward that code into the app's own deep
-    // link so app/auth-callback.tsx can exchange it for a real session.
+    // Supabase's PKCE redirect lands here as ?code=...&type=signup (email
+    // confirmation) or ?type=recovery (password reset) — this same page
+    // serves both. Forward both params into the app's deep link so
+    // app/auth-callback.tsx can tell which flow it's completing (recovery
+    // continues to a "set new password" screen instead of straight to Home).
     // Left as a plain emma://auth-callback (no code) if this page is ever
     // opened without one, so the button still does something sane.
     (function () {
-      var code = new URLSearchParams(window.location.search).get('code');
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code');
+      var type = params.get('type');
       if (!code) return;
       var href = 'emma://auth-callback?code=' + encodeURIComponent(code);
+      if (type) href += '&type=' + encodeURIComponent(type);
       var vi = document.getElementById('open-app-vi');
       var en = document.getElementById('open-app-en');
       if (vi) vi.href = href;
