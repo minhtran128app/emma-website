@@ -163,6 +163,22 @@ section .lead {
 .cta-band h2 { color: #fff; }
 .cta-band .lead { color: rgba(255,255,255,0.75); }
 
+/* ---------- Solid CTA button (light-background pages, e.g. email-confirmed) ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+.btn-primary:hover { text-decoration: none; opacity: 0.92; }
+
 /* ---------- Legal / content pages ---------- */
 .page {
   background: var(--surface);

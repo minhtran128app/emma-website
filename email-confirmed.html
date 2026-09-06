@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email confirmed — Emma</title>
+  <meta name="description" content="Email của bạn đã được xác nhận / Your email has been confirmed." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="lang-vi">
+
+  <div class="topbar">
+    <div class="container row">
+      <a class="brand" href="index.html" style="text-decoration:none"><span class="dot"></span> Emma</a>
+      <nav class="nav">
+        <a href="index.html"><span class="vi">Trang chủ</span><span class="en">Home</span></a>
+        <button class="lang-switch" type="button">EN</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ================= VIETNAMESE ================= -->
+  <article class="page vi" style="text-align:center">
+    <div style="font-size:48px; margin-bottom:8px">✅</div>
+    <h1>Email đã được xác nhận!</h1>
+    <p style="font-size:17px; color:var(--ink-soft); margin-bottom:32px">
+      Chạm vào nút bên dưới để quay lại ứng dụng Emma — bạn sẽ được đăng nhập tự động.
+    </p>
+    <a id="open-app-vi" class="btn-primary" href="emma://auth-callback">Mở ứng dụng Emma</a>
+    <p style="font-size:14px; color:var(--ink-soft); margin-top:24px">
+      Nếu không có gì xảy ra, hãy đảm bảo bạn đã cài đặt Emma trên chính thiết bị này, rồi thử lại.
+    </p>
+  </article>
+
+  <!-- ================= ENGLISH ================= -->
+  <article class="page en" style="text-align:center">
+    <div style="font-size:48px; margin-bottom:8px">✅</div>
+    <h1>Email confirmed!</h1>
+    <p style="font-size:17px; color:var(--ink-soft); margin-bottom:32px">
+      Tap the button below to return to the Emma app — you'll be signed in automatically.
+    </p>
+    <a id="open-app-en" class="btn-primary" href="emma://auth-callback">Open the Emma app</a>
+    <p style="font-size:14px; color:var(--ink-soft); margin-top:24px">
+      If nothing happens, make sure Emma is installed on this same device, then try again.
+    </p>
+  </article>
+
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="index.html"><span class="vi">Trang chủ</span><span class="en">Home</span></a>
+        <a href="privacy.html"><span class="vi">Quyền riêng tư</span><span class="en">Privacy</span></a>
+        <a href="terms.html"><span class="vi">Điều khoản</span><span class="en">Terms</span></a>
+      </div>
+      <div>© 2026 Emma · <a href="mailto:admin@emmamanifest.com">admin@emmamanifest.com</a></div>
+    </div>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    // Supabase's PKCE email-confirmation redirect lands here as
+    // ?code=...&type=signup — forward that code into the app's own deep
+    // link so app/auth-callback.tsx can exchange it for a real session.
+    // Left as a plain emma://auth-callback (no code) if this page is ever
+    // opened without one, so the button still does something sane.
+    (function () {
+      var code = new URLSearchParams(window.location.search).get('code');
+      if (!code) return;
+      var href = 'emma://auth-callback?code=' + encodeURIComponent(code);
+      var vi = document.getElementById('open-app-vi');
+      var en = document.getElementById('open-app-en');
+      if (vi) vi.href = href;
+      if (en) en.href = href;
+    })();
+  </script>
+</body>
+</html>
