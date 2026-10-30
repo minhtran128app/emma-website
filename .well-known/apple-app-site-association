@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["ZN7FSAKDBF.com.minhtran.emma"],
+        "components": [{ "/": "/u/*", "comment": "Link cá nhân thành viên UniSoul → mở app Emma" }]
+      }
+    ]
+  }
+}
