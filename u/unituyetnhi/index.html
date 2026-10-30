@@ -27,18 +27,19 @@
   .hero::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(15,31,46,.05) 30%,rgba(15,31,46,.65)); }
   .logo { position:absolute; top:16px; left:16px; z-index:1; height:34px; width:auto; padding:7px 12px; background:rgba(255,255,255,.9); border-radius:999px; box-sizing:border-box; }
   .hero h1 { position:absolute; left:20px; right:20px; bottom:18px; z-index:1; margin:0; color:#fff; font-size:24px; line-height:1.25; font-weight:700; }
-  .lead { color:var(--soft); font-size:15px; line-height:1.6; margin:20px 2px 18px; }
-  .card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:18px; box-shadow:0 8px 24px rgba(15,31,46,.06); }
-  .label { font-size:12px; letter-spacing:2px; color:var(--soft); text-transform:uppercase; margin-bottom:8px; }
-  .coderow { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-  .code { font-size:26px; font-weight:700; letter-spacing:1px; word-break:break-all; }
+  .lead { color:var(--soft); font-size:15px; margin:20px 2px 12px; font-weight:600; }
+  .step { display:flex; gap:14px; background:#fff; border:1px solid var(--line); border-radius:20px; padding:16px; margin-bottom:12px; box-shadow:0 8px 24px rgba(15,31,46,.06); }
+  .step.hl { border:2px solid var(--a); }
+  .num { flex:0 0 34px; height:34px; border-radius:50%; background:linear-gradient(135deg,var(--a),var(--b)); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .txt { flex:1; min-width:0; font-size:16px; line-height:1.5; padding-top:5px; }
+  .note { background:#FFF4E5; border-radius:16px; padding:14px 16px; font-size:15px; line-height:1.5; margin-top:4px; }
+  .coderow { margin-top:12px; background:var(--bg); border-radius:14px; padding:10px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .code { font-size:22px; font-weight:700; letter-spacing:1px; word-break:break-all; }
   .copy { border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:999px; padding:9px 14px; font-weight:600; font-size:14px; font-family:inherit; cursor:pointer; white-space:nowrap; }
-  .cta { display:block; width:100%; margin:16px 0 8px; padding:16px; border:0; border-radius:999px; color:#fff; font-weight:700; font-size:17px; font-family:inherit; text-align:center; text-decoration:none; background:linear-gradient(135deg,var(--a),var(--b)); box-shadow:0 10px 24px rgba(217,115,26,.35); cursor:pointer; }
+  .cta { display:block; width:100%; margin:12px 0 4px; padding:16px; border:0; border-radius:999px; color:#fff; font-weight:700; font-size:17px; font-family:inherit; text-align:center; text-decoration:none; background:linear-gradient(135deg,var(--a),var(--b)); box-shadow:0 10px 24px rgba(217,115,26,.35); cursor:pointer; }
   .cta.secondary { background:#fff; color:var(--ink); border:1px solid var(--line); box-shadow:none; font-weight:600; }
   .toast { text-align:center; color:var(--a); font-size:14px; min-height:20px; font-weight:600; }
-  ol { margin:22px 0 0; padding-left:20px; color:var(--ink); font-size:15px; line-height:1.6; }
-  ol li { margin-bottom:6px; }
-  .muted { color:var(--soft); font-size:13px; text-align:center; margin-top:26px; }
+  .muted { color:var(--soft); font-size:13px; text-align:center; margin-top:20px; }
   .muted a { color:var(--soft); }
   .only-ios, .only-android, .only-desktop { display:none; }
   body.ios .only-ios, body.android .only-android, body.desktop .only-desktop { display:block; }
@@ -51,34 +52,40 @@
     <img class="logo" src="/u/logo.png" alt="Emma" />
     <h1>Tuyết Nhi mời bạn trải nghiệm Emma</h1>
   </div>
-  <p class="lead">Emma là ứng dụng nghe hướng dẫn manifest bằng tiếng Việt. Mỗi ngày vài phút đeo tai nghe, để tâm trí quen dần với cuộc sống bạn mong muốn — tình yêu, tiền bạc, sự nghiệp, sự tự tin và giấc ngủ.</p>
+  <p class="lead">Chỉ 3 bước, khoảng 1 phút:</p>
 
-  <div class="card">
-    <div class="label">Mã giới thiệu của bạn</div>
-    <div class="coderow"><div class="code" id="code">UNI-TUYETNHI</div><button class="copy" type="button" id="copyBtn">Sao chép</button></div>
+  <div class="step">
+    <div class="num">1</div>
+    <div class="txt">
+      <div class="only-ios"><b>Tải Emma</b> — mã của bạn được chép sẵn.</div>
+      <div class="only-android"><b>Tải Emma</b> trên Google Play.</div>
+      <div class="only-desktop"><b>Tải Emma</b> trên điện thoại.</div>
+      <a class="cta only-ios" id="iosBtn" href="https://apps.apple.com/vn/app/emma-manifest-daily/id6798245439?pt=129130644&ct=UNI-TUYETNHI&mt=8">Tải Emma miễn phí</a>
+      <a class="cta only-android" id="androidBtn" href="https://play.google.com/store/apps/details?id=com.emmamanifest.app&referrer=code%3DUNI-TUYETNHI">Tải Emma miễn phí</a>
+      <div class="only-desktop">
+        <a class="cta" href="https://apps.apple.com/vn/app/emma-manifest-daily/id6798245439?pt=129130644&ct=UNI-TUYETNHI&mt=8">App Store (iPhone)</a>
+        <a class="cta secondary" href="https://play.google.com/store/apps/details?id=com.emmamanifest.app&referrer=code%3DUNI-TUYETNHI">Google Play (Android)</a>
+      </div>
+      <div class="toast" id="toast"></div>
+    </div>
   </div>
 
-  <a class="cta only-ios" id="iosBtn" href="https://apps.apple.com/vn/app/emma-manifest-daily/id6798245439?pt=129130644&ct=UNI-TUYETNHI&mt=8">Tải Emma miễn phí</a>
-  <a class="cta only-android" id="androidBtn" href="https://play.google.com/store/apps/details?id=com.emmamanifest.app&referrer=code%3DUNI-TUYETNHI">Tải Emma trên Google Play</a>
-  <div class="only-desktop">
-    <a class="cta" href="https://apps.apple.com/vn/app/emma-manifest-daily/id6798245439?pt=129130644&ct=UNI-TUYETNHI&mt=8">Tải trên App Store (iPhone)</a>
-    <a class="cta secondary" href="https://play.google.com/store/apps/details?id=com.emmamanifest.app&referrer=code%3DUNI-TUYETNHI">Tải trên Google Play (Android)</a>
+  <div class="step hl">
+    <div class="num">2</div>
+    <div class="txt">
+      <div class="only-ios">Mở app, tới câu <b>"Mã giới thiệu"</b> → bấm <b>Dán</b> → <b>Xác nhận</b>.</div>
+      <div class="only-android">Mở app, tới câu <b>"Mã giới thiệu"</b>: mã đã điền sẵn, bấm <b>Xác nhận</b>.</div>
+      <div class="only-desktop">Mở app, tới câu <b>"Mã giới thiệu"</b> → nhập mã → <b>Xác nhận</b>.</div>
+      <div class="coderow"><div class="code" id="code">UNI-TUYETNHI</div><button class="copy" type="button" id="copyBtn">Sao chép</button></div>
+    </div>
   </div>
-  <div class="toast" id="toast"></div>
 
-  <ol class="only-ios">
-    <li>Bấm <b>Tải Emma miễn phí</b> — mã của bạn được sao chép sẵn.</li>
-    <li>Cài và mở Emma.</li>
-    <li>Ở màn hình <b>"Bạn có mã giới thiệu không?"</b>, bấm <b>Dán mã</b> (hoặc giữ ngón tay vào ô nhập → Dán, hay gõ mã ở trên) rồi bấm Xác nhận.</li>
-  </ol>
-  <ol class="only-android">
-    <li>Bấm <b>Tải Emma trên Google Play</b> và cài app.</li>
-    <li>Mở Emma — mã của bạn đã được điền sẵn ở màn hình <b>"Bạn có mã giới thiệu không?"</b>, chỉ cần bấm Xác nhận.</li>
-  </ol>
-  <ol class="only-desktop">
-    <li>Mở trang này trên điện thoại để tải Emma, hoặc chọn cửa hàng ở trên.</li>
-    <li>Khi mở app lần đầu, nhập mã <b>UNI-TUYETNHI</b> ở màn hình "Bạn có mã giới thiệu không?".</li>
-  </ol>
+  <div class="step">
+    <div class="num">3</div>
+    <div class="txt">Chọn gói và thanh toán ngay trong app.</div>
+  </div>
+
+  <div class="note">Nhớ nhập mã <b>trước khi thanh toán</b> để Tuyết Nhi biết và đồng hành cùng bạn nhé.</div>
 
   <p class="muted">Tải app và nghe chuỗi bài Hướng Dẫn miễn phí. · <a href="/terms.html">Điều khoản</a> · <a href="/privacy.html">Quyền riêng tư</a></p>
 </div>
@@ -130,8 +137,8 @@
     var href = this.href; setTimeout(function () { location.href = href; }, 350);
   });
   if (isAndroid) {
-    // Android: mã đi kèm link Google Play, tự chuyển sau giây lát.
-    setTimeout(function () { location.href = document.getElementById('androidBtn').href; }, 1200);
+    // Android: mã đi kèm link Google Play, tự chuyển sau 3 giây (đủ để đọc 3 bước).
+    setTimeout(function () { location.href = document.getElementById('androidBtn').href; }, 3000);
   }
 })();
 </script>
